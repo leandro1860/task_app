@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
-export const TaskCreator = props => {
+export const TaskCreator = PropTypes => {
   const [newTaskName, setNewTaskName] = useState('')
 
   const updateNewTaskValue = e => setNewTaskName(e.target.value)
 
   const createNewTask = () => {
-    this.props.callback(newTaskName)
+    PropTypes.callback(newTaskName)
     setNewTaskName('')
   }
 
@@ -19,8 +19,8 @@ export const TaskCreator = props => {
         onChange={updateNewTaskValue}
         placeholder="Escribe aquí una nueva tarea"
       />
-      <button className="btn btn-primary mt-1" onClick={createNewTask}>
-        agregar tarea
+      <button className="btn btn-success mt-1" onClick={createNewTask}>
+        Agregar tarea
       </button>
     </div>
   )

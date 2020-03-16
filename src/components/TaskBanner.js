@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const TaskBanner = props => (
-  <h4 className="bg-danger text-white text-center p-4">
-    aplicacion de tareas ({this.props.taskItems.filter(t => !t.done).length}{' '}
-    tareas a realizar)
+export const TaskBanner = PropTypes => (
+  <h4 className="bg-primary text-white text-center p-4">
+    Aplicacion de tareas ({PropTypes.taskItems.filter(t => !t.done).length}{' '}
+    tarea/s a realizar)
   </h4>
 )

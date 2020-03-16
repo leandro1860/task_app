@@ -6,10 +6,10 @@ import { VisibilityControl } from './components/VisibilityControl'
 
 function App() {
   const [taskItems, setTaskItems] = useState([
-    { name: 'Task One', done: false },
-    { name: 'Task Two', done: false },
-    { name: 'Task Three', done: true },
-    { name: 'Task Four', done: false }
+    { name: 'Tarea 1', done: false },
+    { name: 'Tarea 2', done: false },
+    { name: 'Tarea 3', done: true },
+    { name: 'Tarea 4', done: false }
   ])
 
   const [showCompleted, setshowCompleted] = useState(true)
@@ -20,10 +20,10 @@ function App() {
       setTaskItems(JSON.parse(data))
     } else {
       setTaskItems([
-        { name: 'Task One', done: false },
-        { name: 'Task Two', done: false },
-        { name: 'Task Three', done: true },
-        { name: 'Task Four', done: false }
+        { name: 'Tarea 1', done: false },
+        { name: 'Tarea 2', done: false },
+        { name: 'Tarea 3', done: true },
+        { name: 'Tarea 4', done: false }
       ])
       setshowCompleted(true)
     }
@@ -48,9 +48,26 @@ function App() {
     taskItems
       .filter(task => task.done === doneValue)
       .map(task => (
-        <TaskRow key={task.name} task={task} toggleTask={toggleTask} />
+        <TaskRow
+          key={task.name}
+          task={task}
+          toggleTask={toggleTask}
+          deleteTask={deleteTask}
+        />
       ))
 
+  const deleteTask = task => {
+    let removeIndex = taskItems
+      .map(function(task) {
+        return task.name
+      })
+      .indexOf(task.name)
+
+    let filteredItems = taskItems
+      .slice(0, removeIndex)
+      .concat(taskItems.slice(removeIndex + 1, taskItems.length))
+    setTaskItems(filteredItems)
+  }
   return (
     <div>
       <TaskBanner taskItems={taskItems} />

@@ -1,14 +1,22 @@
 import React from 'react'
 
-export const TaskRow = props => (
-  <tr key={this.props.task.name}>
-    <td>{this.props.task.name}</td>
+export const TaskRow = PropTypes => (
+  <tr key={PropTypes.task.name}>
+    <td>{PropTypes.task.name}</td>
     <td>
       <input
         type="checkbox"
-        checked={this.props.task.done}
-        onChange={() => this.props.toggleTask(this.props.task)}
+        checked={PropTypes.task.done}
+        onChange={() => PropTypes.toggleTask(PropTypes.task)}
       />
+    </td>
+    <td>
+      <button
+        className="btn btn-danger"
+        onClick={() => PropTypes.deleteTask(PropTypes.task)}
+      >
+        Eliminar
+      </button>
     </td>
   </tr>
 )
