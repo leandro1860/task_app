@@ -2,19 +2,14 @@
   text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .titleBanner {
+    font-size: 17px;
   }
+}
 
-  .App-link {
-    color: #61dafb;
+@media screen and (min-width: 480px) and (max-width: 599px) {
+  .titleBanner {
+    font-size: 22px;
   }
 }

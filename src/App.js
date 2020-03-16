@@ -3,6 +3,7 @@ import { TaskBanner } from './components/TaskBanner'
 import { TaskRow } from './components/TaskRow'
 import { TaskCreator } from './components/TaskCreator'
 import { VisibilityControl } from './components/VisibilityControl'
+import './App.css'
 
 function App() {
   const [taskItems, setTaskItems] = useState([
