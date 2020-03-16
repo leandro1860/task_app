@@ -76,7 +76,7 @@ function App() {
         <table className="table table-striped table-bordered">
           <thead>
             <tr>
-              <th>Descripcion</th>
+              <th>Descripción</th>
               <th>Realizada</th>
             </tr>
           </thead>
@@ -93,7 +93,7 @@ function App() {
           <table className="table table-striped table-bordered">
             <thead>
               <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <th>Realizada</th>
               </tr>
             </thead>
