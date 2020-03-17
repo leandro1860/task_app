@@ -1,4 +1,5 @@
 {
+  "homepage": "http://leandro1860.github.io/task_app"
   "name": "taskapplication",
   "version": "0.1.0",
   "private": true,
@@ -18,7 +19,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "node_modules/.bin/eslint src/**/*.js",
-    "lint:fix": "node_modules/.bin/eslint src/**/*.js --fix"
+    "lint:fix": "node_modules/.bin/eslint src/**/*.js --fix",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "husky": {
     "hooks": {
@@ -48,6 +51,7 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "gh-pages": "^2.2.0"
   }
 }
