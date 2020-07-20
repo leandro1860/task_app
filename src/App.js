@@ -1,49 +1,39 @@
-import React, { useState, useEffect } from 'react'
-import { TaskBanner } from './components/TaskBanner'
-import { TaskRow } from './components/TaskRow'
-import { TaskCreator } from './components/TaskCreator'
-import { VisibilityControl } from './components/VisibilityControl'
-import './App.css'
+import React, {useState, useEffect} from 'react';
+import {TaskBanner} from './components/TaskBanner';
+import {TaskRow} from './components/TaskRow';
+import {TaskCreator} from './components/TaskCreator';
+import {VisibilityControl} from './components/VisibilityControl';
+import './App.css';
 
 function App() {
-  const [taskItems, setTaskItems] = useState([
-    { name: 'Tarea 1', done: false },
-    { name: 'Tarea 2', done: false },
-    { name: 'Tarea 3', done: true },
-    { name: 'Tarea 4', done: false }
-  ])
+  const [taskItems, setTaskItems] = useState([]);
 
-  const [showCompleted, setshowCompleted] = useState(true)
+  const [showCompleted, setshowCompleted] = useState(true);
 
   useEffect(() => {
-    let data = localStorage.getItem('tasks')
+    let data = localStorage.getItem('tasks');
     if (data != null) {
-      setTaskItems(JSON.parse(data))
+      setTaskItems(JSON.parse(data));
     } else {
-      setTaskItems([
-        { name: 'Tarea 1', done: false },
-        { name: 'Tarea 2', done: false },
-        { name: 'Tarea 3', done: true },
-        { name: 'Tarea 4', done: false }
-      ])
-      setshowCompleted(true)
+      setTaskItems([]);
+      setshowCompleted(true);
     }
-  }, [])
+  }, []);
 
   const createNewTask = taskName => {
     if (!taskItems.find(t => t.name === taskName)) {
-      setTaskItems([...taskItems, { name: taskName, done: false }])
+      setTaskItems([...taskItems, {name: taskName, done: false}]);
     }
-  }
+  };
 
   useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(taskItems))
-  }, [taskItems])
+    localStorage.setItem('tasks', JSON.stringify(taskItems));
+  }, [taskItems]);
 
   const toggleTask = task =>
     setTaskItems(
-      taskItems.map(t => (t.name === task.name ? { ...t, done: !t.done } : t))
-    )
+      taskItems.map(t => (t.name === task.name ? {...t, done: !t.done} : t))
+    );
 
   const taskTableRows = doneValue =>
     taskItems
@@ -55,26 +45,26 @@ function App() {
           toggleTask={toggleTask}
           deleteTask={deleteTask}
         />
-      ))
+      ));
 
   const deleteTask = task => {
     let removeIndex = taskItems
-      .map(function(task) {
-        return task.name
+      .map(function (task) {
+        return task.name;
       })
-      .indexOf(task.name)
+      .indexOf(task.name);
 
     let filteredItems = taskItems
       .slice(0, removeIndex)
-      .concat(taskItems.slice(removeIndex + 1, taskItems.length))
-    setTaskItems(filteredItems)
-  }
+      .concat(taskItems.slice(removeIndex + 1, taskItems.length));
+    setTaskItems(filteredItems);
+  };
   return (
     <div>
       <TaskBanner taskItems={taskItems} />
-      <div className="container-fluid">
+      <div className='container-fluid'>
         <TaskCreator callback={createNewTask} />
-        <table className="table table-striped table-bordered">
+        <table className='table table-striped table-bordered'>
           <thead>
             <tr>
               <th>Descripción</th>
@@ -83,15 +73,15 @@ function App() {
           </thead>
           <tbody>{taskTableRows(false)}</tbody>
         </table>
-        <div className="bg-secondary text-white text-center p-2">
+        <div className='bg-secondary text-white text-center p-2'>
           <VisibilityControl
-            description="tareas realizadas"
+            description='tareas realizadas'
             isChecked={showCompleted}
             callback={checked => setshowCompleted(checked)}
           />
         </div>
         {showCompleted && (
-          <table className="table table-striped table-bordered">
+          <table className='table table-striped table-bordered'>
             <thead>
               <tr>
                 <th>Descripción</th>
@@ -103,7 +93,7 @@ function App() {
         )}
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
