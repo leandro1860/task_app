@@ -15,6 +15,7 @@ export const TaskCreator = props => {
       <input
         type='text'
         className='form-control'
+        maxlength='20'
         value={newTaskName}
         onChange={updateNewTaskValue}
         placeholder='Escribe aquí una nueva tarea'

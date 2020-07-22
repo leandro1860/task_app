@@ -6,6 +6,10 @@
   .titleBanner {
     font-size: 17px;
   }
+  #task-description {
+    font-size: 10px;
+    width: 2px;
+  }
 }
 
 @media screen and (min-width: 480px) and (max-width: 599px) {
