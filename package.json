@@ -20,13 +20,13 @@
     "eject": "react-scripts eject",
     "lint": "node_modules/.bin/eslint src/**/*.js",
     "lint:fix": "node_modules/.bin/eslint src/**/*.js --fix",
-    "predeploy": "npm run build",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint:fix",
-      "pre-push ": "npm run lint"
+      "pre-commit": "yarn run lint:fix",
+      "pre-push ": "yarn run lint"
     }
   },
   "eslintConfig": {
